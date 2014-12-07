@@ -1,4 +1,4 @@
-/*jslint node: true, nomen: true, es5: true */
+/* jshint node: true */
 'use strict';
 
 var port = process.argv[2] || 8000;
