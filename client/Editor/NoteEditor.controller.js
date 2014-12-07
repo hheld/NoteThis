@@ -14,11 +14,23 @@
 
         vm.note = '';
         vm.save = save;
+        vm.test = test;
 
         function save() {
             DataStorage.store({
                 note: vm.note,
-                date: Date()
+                date: new Date()
+            });
+        }
+
+        function test() {
+            DataStorage.fetchAllPromise()
+            .then(function (allNotes) {
+                console.log('Found ' + allNotes.length + ' notes:');
+                allNotes.forEach(function (n) {
+                    console.log(n.note);
+                    console.log(n.date);
+                });
             });
         }
     }
