@@ -7,14 +7,19 @@
         .module('NoteEditor')
         .controller('NoteEditorCtrl', NoteEditorCtrl);
 
-    function NoteEditorCtrl () {
+    NoteEditorCtrl.$inject = ['DataStorage'];
+
+    function NoteEditorCtrl (DataStorage) {
         var vm = this;
 
         vm.note = '';
         vm.save = save;
 
         function save() {
-            console.log('user wants to save note: ' + vm.note);
+            DataStorage.store({
+                note: vm.note,
+                date: Date()
+            });
         }
     }
 })();
