@@ -7,13 +7,14 @@
         .module('NoteEditor')
         .controller('NoteEditorCtrl', NoteEditorCtrl);
 
-    function NoteEditorCtrl() {
+    function NoteEditorCtrl () {
         var vm = this;
 
+        vm.note = '';
         vm.save = save;
 
         function save() {
-            console.log('user wants to save note');
+            console.log('user wants to save note: ' + vm.note);
         }
     }
 })();

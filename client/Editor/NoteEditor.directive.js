@@ -1,4 +1,4 @@
-/* global angular, Markdown */
+/* global angular, Markdown, console */
 
 (function () {
     'use strict';
@@ -12,7 +12,6 @@
             restrict: 'E',
             templateUrl: 'Editor/NoteEditor.html',
             link: link,
-            replace: true,
             controller: 'NoteEditorCtrl',
             controllerAs: 'ctrl',
             scope: {}
@@ -20,10 +19,11 @@
 
         return setup;
 
-        function link() {
+        function link(scope, element, attr){
             Object.prototype.tooltip = function () {};
             var converter = Markdown.getSanitizingConverter(),
                 editor = new Markdown.Editor(converter);
+
             editor.run();
         }
     }
