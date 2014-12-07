@@ -13,17 +13,20 @@
         var vm = this;
 
         vm.note = '';
+        vm.title = '';
+        vm.tags = '';
+
         vm.save = save;
-        vm.test = test;
 
         function save() {
             DataStorage.store({
-                note: vm.note,
-                date: new Date()
+                title: vm.title,
+                tags: vm.tags,
+                note: vm.note
             });
         }
 
-        function test() {
+/*        function test() {
             DataStorage.fetchAllPromise()
             .then(function (allNotes) {
                 console.log('Found ' + allNotes.length + ' notes:');
@@ -32,6 +35,6 @@
                     console.log(n.date);
                 });
             });
-        }
+        }*/
     }
 })();

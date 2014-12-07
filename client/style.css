@@ -1,0 +1,7 @@
+textarea.noresizeHandler {
+    resize: none
+}
+
+.voffset {
+    margin-top: 10px;
+}

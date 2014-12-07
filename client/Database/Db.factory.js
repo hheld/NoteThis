@@ -36,6 +36,8 @@
         }
 
         function store (note) {
+            note.date = new Date();
+
             var transaction = db.transaction(['notes'], 'readwrite'),
                 objectStore = transaction.objectStore('notes'),
                 req = objectStore.put(note);
