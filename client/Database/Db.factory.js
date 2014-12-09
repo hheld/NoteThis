@@ -30,7 +30,7 @@
                 var storage = event.target.result;
 
                 storage.createObjectStore('notes', {
-                    keyPath: 'date'
+                    autoIncrement: true
                 });
             };
         }
@@ -60,7 +60,11 @@
                 var result = event.target.result;
 
                 if (result) {
-                    notes.push(result.value);
+                    console.log(result.key);
+                    notes.push({
+                        value: result.value,
+                        key:  result.key
+                    });
                     result.continue();
                 } else {
                     deferred.resolve(notes);

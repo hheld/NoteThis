@@ -9,17 +9,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <note-editor></note-editor>
-    </div>
+    <div class="container" ng-view></div>
 
     <script src="angular/angular.min.js"></script>
+    <script src="angular-route/angular-route.min.js"></script>
 
     <script src="pagedown/Markdown.Converter.js"></script>
     <script src="pagedown/Markdown.Sanitizer.js"></script>
     <script src="pagedown/Markdown.Editor.js"></script>
 
     <script src="app.js"></script>
+    <script src="Routes/app.routes.js"></script>
+    <script src="Routes/NoteEditRoute.controller.js"></script>
 
     <script src="Editor/NoteEditor.app.js"></script>
     <script src="Editor/NoteEditor.controller.js"></script>

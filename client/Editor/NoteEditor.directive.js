@@ -14,7 +14,9 @@
             link: link,
             controller: 'NoteEditorCtrl',
             controllerAs: 'ctrl',
-            scope: {}
+            scope: {
+                note: '='
+            }
         };
 
         return setup;

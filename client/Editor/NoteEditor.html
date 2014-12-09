@@ -1,5 +1,6 @@
 <div class="panel panel-default">
-    <div class="panel-heading">Edit note</div>
+    <div class="panel-heading" ng-show="ctrl.noteId">Edit note</div>
+    <div class="panel-heading" ng-hide="ctrl.noteId">New note</div>
     <form role="form" class="panel-body">
         <div class="form-group form-group">
             <input type="text" ng-model="ctrl.title" class="form-control" placeholder="Title">
@@ -13,5 +14,6 @@
         <textarea ng-model="ctrl.note" placeholder="Note" id="wmd-input" class="form-control noresizeHandler" rows="10"></textarea>
     </div>
     <div id="wmd-preview" class="panel-footer"></div>
-    <button class="btn button-default voffset pull-right" ng-click="ctrl.save()">Save</button>
+    <button class="btn btn-default voffset pull-right" ng-click="ctrl.save()">Save</button>
+    <button class="btn btn-danger voffset pull-left" ng-click="ctrl.test()">Test</button>
 </div>
