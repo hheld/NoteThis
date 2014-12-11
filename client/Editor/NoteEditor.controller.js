@@ -4,12 +4,12 @@
     'use strict';
 
     angular
-        .module('NoteEditor')
-        .controller('NoteEditorCtrl', NoteEditorCtrl);
+        .module('noteEditor')
+        .controller('NoteEditorController', NoteEditorController);
 
-    NoteEditorCtrl.$inject = ['DataStorage', '$scope'];
+    NoteEditorController.$inject = ['DataStorage', '$scope'];
 
-    function NoteEditorCtrl (DataStorage, $scope) {
+    function NoteEditorController (DataStorage, $scope) {
         var vm = this;
 
         vm.note = '';

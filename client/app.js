@@ -3,8 +3,8 @@
 (function () {
     'use strict';
 
-    angular.module('NoteThis',
+    angular.module('noteThis',
                    ['ngRoute',
-                    'NoteEditor',
-                    'DB']);
+                    'noteEditor',
+                    'dB']);
 })();

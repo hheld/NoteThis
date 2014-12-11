@@ -3,7 +3,7 @@
 (function () {
     'use strict';
 
-    angular.module('NoteThis')
+    angular.module('noteThis')
         .controller('NoteEditRouteController', NoteEditRouteController);
 
     NoteEditRouteController.$inject = ['$routeParams'];

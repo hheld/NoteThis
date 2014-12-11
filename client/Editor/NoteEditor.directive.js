@@ -4,7 +4,7 @@
     'use strict';
 
     angular
-        .module('NoteEditor')
+        .module('noteEditor')
         .directive('noteEditor', noteEditor);
 
     function noteEditor() {
@@ -12,7 +12,7 @@
             restrict: 'E',
             templateUrl: 'Editor/NoteEditor.html',
             link: link,
-            controller: 'NoteEditorCtrl',
+            controller: 'NoteEditorController',
             controllerAs: 'ctrl',
             scope: {
                 note: '='

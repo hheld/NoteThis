@@ -4,7 +4,7 @@
     'use strict';
 
     angular
-        .module('DB')
+        .module('dB')
         .factory('DataStorage', DataStorage);
 
     DataStorage.$inject = ['$q'];

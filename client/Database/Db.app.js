@@ -3,5 +3,5 @@
 (function () {
     'use strict';
 
-    angular.module('DB', []);
+    angular.module('dB', []);
 })();
