@@ -12,18 +12,25 @@
     function DataStorage ($q) {
         var db;
 
+        var dbDeferred = $q.defer();
+
         open();
 
-        return {
-            store: store,
-            fetchAllPromise: fetchAll
-        };
+        return dbDeferred.promise;
+
+        // ####################################################################
 
         function open () {
             var req = indexedDB.open('note-this-DB', 1);
 
             req.onsuccess = function (event) {
                 db = this.result;
+
+                dbDeferred.resolve({
+                    store: store,
+                    fetchAllPromise: fetchAll,
+                    fetchNotePromise: fetchNote
+                });
             };
 
             req.onupgradeneeded = function (event) {
@@ -60,7 +67,6 @@
                 var result = event.target.result;
 
                 if (result) {
-                    console.log(result.key);
                     notes.push({
                         value: result.value,
                         key:  result.key
@@ -68,6 +74,27 @@
                     result.continue();
                 } else {
                     deferred.resolve(notes);
+                }
+            };
+
+            return deferred.promise;
+        }
+
+        function fetchNote (noteId) {
+            var transaction = db.transaction(['notes'], 'readonly'),
+                objectStore = transaction.objectStore('notes'),
+                keyRange = IDBKeyRange.only(parseInt(noteId)),
+                req = objectStore.openCursor(keyRange);
+
+            var note,
+                deferred = $q.defer();
+
+            req.onsuccess = function (event) {
+                var result = event.target.result;
+
+                if (result) {
+                    note = result.value;
+                    deferred.resolve(note);
                 }
             };
 

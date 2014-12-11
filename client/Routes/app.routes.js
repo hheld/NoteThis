@@ -8,7 +8,7 @@
 
     routes.$inject = ['$routeProvider'];
 
-    function routes($routeProvider) {
+    function routes ($routeProvider) {
         $routeProvider
         .when('/newNote', {
             template: '<note-editor></note-editor>'
@@ -17,7 +17,18 @@
             template: '<note-editor note=ctrl.noteId></note-editor>',
             controllerAs: 'ctrl',
             controller: 'NoteEditRouteController',
-            scope: { }
+            scope: { },
+            resolve: {
+                note: resolveNote
+            }
         });
+    }
+
+    // ########################################################################
+
+    resolveNote.$inject = ['$route', 'DataStorage'];
+
+    function resolveNote ($route, DataStorage) {
+        return DataStorage;
     }
 })();
