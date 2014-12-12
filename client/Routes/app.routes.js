@@ -17,18 +17,7 @@
             template: '<note-editor note=ctrl.noteId></note-editor>',
             controllerAs: 'ctrl',
             controller: 'NoteEditRouteController',
-            scope: { },
-            resolve: {
-                note: resolveDataStorage
-            }
+            scope: { }
         });
-    }
-
-    // ########################################################################
-
-    resolveDataStorage.$inject = ['$route', 'DataStorage'];
-
-    function resolveDataStorage ($route, DataStorage) {
-        return DataStorage;
     }
 })();
