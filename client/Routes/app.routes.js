@@ -19,16 +19,16 @@
             controller: 'NoteEditRouteController',
             scope: { },
             resolve: {
-                note: resolveNote
+                note: resolveDataStorage
             }
         });
     }
 
     // ########################################################################
 
-    resolveNote.$inject = ['$route', 'DataStorage'];
+    resolveDataStorage.$inject = ['$route', 'DataStorage'];
 
-    function resolveNote ($route, DataStorage) {
+    function resolveDataStorage ($route, DataStorage) {
         return DataStorage;
     }
 })();

@@ -19,7 +19,6 @@
         vm.existingNote = Boolean(vm.noteId);
 
         vm.save = save;
-        vm.test = test;
 
         if(vm.existingNote) {
             DataStorage.then(function (ds) {
@@ -40,18 +39,6 @@
                     title: vm.title,
                     tags: vm.tags,
                     note: vm.note
-                });
-            });
-        }
-
-        function test () {
-            DataStorage.fetchAllPromise()
-            .then(function (allNotes) {
-                console.log('Found ' + allNotes.length + ' notes:');
-                allNotes.forEach(function (n) {
-                    console.log(n.key);
-                    console.log(n.value.note);
-                    console.log(n.value.date);
                 });
             });
         }
