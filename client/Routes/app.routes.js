@@ -18,6 +18,12 @@
             controllerAs: 'ctrl',
             controller: 'NoteEditRouteController',
             scope: { }
+        })
+        .when('/allNotes', {
+            templateUrl: 'Overview/overview.html',
+            controllerAs: 'ctrl',
+            controller: 'OverviewController',
+            scope: { }
         });
     }
 })();

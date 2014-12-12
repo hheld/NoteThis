@@ -6,5 +6,6 @@
     angular.module('noteThis',
                    ['ngRoute',
                     'noteEditor',
-                    'dB']);
+                    'dB',
+                    'navigationPanel']);
 })();

@@ -1,0 +1,7 @@
+<section>
+    <ul>
+        <li ng-repeat="note in ctrl.notes">
+            {{note.value.date}} - {{note.value.title}} - <a ng-href="#/edit/{{note.key}}">edit</a>
+        </li>
+    </ul>
+</section>

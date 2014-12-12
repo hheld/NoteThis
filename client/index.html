@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container" ng-view></div>
+    <div class="container">
+        <navigation-panel></navigation-panel>
+    </div>
+    <div class="container voffset" ng-view></div>
 
     <script src="angular/angular.min.js"></script>
     <script src="angular-route/angular-route.min.js"></script>
@@ -28,5 +31,11 @@
 
     <script src="Database/Db.app.js"></script>
     <script src="Database/Db.factory.js"></script>
+
+    <script src="NavigationPanel/NavigationPanel.app.js"></script>
+    <script src="NavigationPanel/NavigationPanel.controller.js"></script>
+    <script src="NavigationPanel/NavigationPanel.directive.js"></script>
+
+    <script src="Overview/overview.controller.js"></script>
 </body>
 </html>
