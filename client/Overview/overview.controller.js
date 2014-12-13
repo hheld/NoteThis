@@ -15,6 +15,7 @@
         vm.notes = [];
         vm.deleteNote = deleteNote;
         vm.editNote = editNote;
+        vm.toggleShown = toggleShown;
 
         // ####################################################################
 
@@ -43,6 +44,10 @@
 
         function editNote (noteId) {
             $location.path('/edit/' + noteId);
+        }
+
+        function toggleShown (note) {
+            note.isShown = !note.isShown;
         }
     }
 })();

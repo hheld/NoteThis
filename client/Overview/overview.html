@@ -10,11 +10,13 @@
                         {{note.value.date | date:'MMM d, y (H:mm:ss)'}}
                     </span>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" ng-show="note.isShown">
                     <p ng-bind-html="note.value.note | markdown"></p>
                 </div>
                 <div class="panel-footer">
                     <div class="btn-group btn-group-xs" role="group">
+                        <button type="button" class="btn btn-info" ng-show="note.isShown" ng-click="ctrl.toggleShown(note)">Hide</button>
+                        <button type="button" class="btn btn-info" ng-hide="note.isShown" ng-click="ctrl.toggleShown(note)">Show</button>
                         <button type="button" ng-click="ctrl.editNote(note.key)" class="btn btn-primary">Edit</button>
                         <button type="button" ng-click="ctrl.deleteNote(note.value.id)" class="btn btn-danger">Delete</button>
                     </div>
