@@ -27,6 +27,7 @@
                     vm.note = note.note;
                     vm.title = note.title;
                     vm.tags = note.tags;
+                    vm.date = note.date;
                 });
             });
         }
@@ -35,11 +36,17 @@
 
         function save () {
             DataStorage.then(function (ds) {
-                ds.store({
+                var newNote = {
                     title: vm.title,
                     tags: vm.tags,
                     note: vm.note
-                });
+                };
+
+                if (vm.existingNote) {
+                    newNote.id = parseInt(vm.noteId);
+                }
+
+                ds.store(newNote);
             });
         }
     }

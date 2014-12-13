@@ -37,6 +37,7 @@
                 var storage = event.target.result;
 
                 storage.createObjectStore('notes', {
+                    keyPath: 'id',
                     autoIncrement: true
                 });
             };
