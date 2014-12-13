@@ -1,7 +1,8 @@
 <section>
     <ul>
         <li ng-repeat="note in ctrl.notes">
-            {{note.value.date}} - {{note.value.title}} - <a ng-href="#/edit/{{note.key}}">edit</a>
+            {{note.value.date}} - {{note.value.title}} - <a ng-href="#/edit/{{note.key}}">Edit</a>
+            <button ng-click="ctrl.deleteNote(note.value.id)">Delete</button>
         </li>
     </ul>
 </section>

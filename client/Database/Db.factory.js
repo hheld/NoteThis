@@ -29,7 +29,8 @@
                 dbDeferred.resolve({
                     store: store,
                     fetchAllPromise: fetchAll,
-                    fetchNotePromise: fetchNote
+                    fetchNotePromise: fetchNote,
+                    deleteNote: deleteNote
                 });
             };
 
@@ -101,6 +102,20 @@
                     note = result.value;
                     deferred.resolve(note);
                 }
+            };
+
+            return deferred.promise;
+        }
+
+        function deleteNote (noteId) {
+            var transaction = db.transaction(['notes'], 'readwrite'),
+                objectStore = transaction.objectStore('notes'),
+                req = objectStore.delete(+noteId);
+
+            var deferred = $q.defer();
+
+            req.onsuccess = function (event) {
+                deferred.resolve();
             };
 
             return deferred.promise;
