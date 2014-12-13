@@ -3,5 +3,5 @@
 (function () {
     'use strict';
 
-    angular.module('noteEditor', ['dB']);
+    angular.module('noteEditor', ['dB', 'subscriptionService']);
 })();

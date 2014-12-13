@@ -46,13 +46,17 @@
         function store (note) {
             note.date = new Date();
 
+            var deferedDone = $q.defer();
+
             var transaction = db.transaction(['notes'], 'readwrite'),
                 objectStore = transaction.objectStore('notes'),
                 req = objectStore.put(note);
 
             req.onsuccess = function (event) {
-                console.log('Stored note in DB');
+                deferedDone.resolve();
             };
+
+            return deferedDone.promise;
         }
 
         function fetchAll () {

@@ -11,10 +11,13 @@
 
     function SubscriptionService ($rootScope) {
         var EDIT_MODE = "editMode";
+        var GOTO_OVERVIEW = "goToOverview";
 
         return {
             editNote: editNote,
-            onEditNote: onEditNote
+            onEditNote: onEditNote,
+            goToOverview: goToOverview,
+            onGoToOverview: onGoToOverview
         };
 
         // ####################################################################
@@ -25,6 +28,16 @@
 
         function onEditNote ($scope, handler) {
             $scope.$on(EDIT_MODE, function (event) {
+                handler();
+            });
+        }
+
+        function goToOverview () {
+            $rootScope.$broadcast(GOTO_OVERVIEW);
+        }
+
+        function onGoToOverview ($scope, handler) {
+            $scope.$on(GOTO_OVERVIEW, function (event) {
                 handler();
             });
         }

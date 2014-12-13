@@ -16,5 +16,9 @@
         subscriptionService.onEditNote($scope, function () {
             vm.tab = -1;
         });
+
+        subscriptionService.onGoToOverview($scope, function () {
+            vm.tab = 1;
+        });
     }
 })();

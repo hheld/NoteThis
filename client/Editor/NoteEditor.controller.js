@@ -7,9 +7,9 @@
         .module('noteEditor')
         .controller('NoteEditorController', NoteEditorController);
 
-    NoteEditorController.$inject = ['DataStorage', '$scope'];
+    NoteEditorController.$inject = ['DataStorage', '$scope', '$location', 'subscriptionService'];
 
-    function NoteEditorController (DataStorage, $scope) {
+    function NoteEditorController (DataStorage, $scope, $location, subscriptionService) {
         var vm = this;
 
         vm.note = '';
@@ -46,7 +46,10 @@
                     newNote.id = parseInt(vm.noteId);
                 }
 
-                ds.store(newNote);
+                ds.store(newNote).then(function () {
+                    $location.path('/allNotes');
+                    subscriptionService.goToOverview();
+                });
             });
         }
     }
