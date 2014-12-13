@@ -5,6 +5,7 @@
 
     angular.module('noteThis',
                    ['ngRoute',
+                    'ngSanitize',
                     'noteEditor',
                     'dB',
                     'navigationPanel',

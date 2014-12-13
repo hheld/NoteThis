@@ -3,19 +3,24 @@
         <li class="list-group-item" ng-repeat="note in ctrl.notes">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <span class="badge pull-right">
-                        {{note.value.tags}}
+                    <strong>
+                        {{note.value.title}}
+                    </strong>
+                    <span class="label label-info navbar-right small">
+                        {{note.value.date | date:'MMM d, y (H:mm:ss)'}}
                     </span>
-                    {{note.value.date}}
                 </div>
                 <div class="panel-body">
-                    {{note.value.title}}
+                    <p ng-bind-html="note.value.note | markdown"></p>
                 </div>
                 <div class="panel-footer">
                     <div class="btn-group btn-group-xs" role="group">
                         <button type="button" ng-click="ctrl.editNote(note.key)" class="btn btn-primary">Edit</button>
                         <button type="button" ng-click="ctrl.deleteNote(note.value.id)" class="btn btn-danger">Delete</button>
                     </div>
+                    <span class="badge navbar-right">
+                        {{note.value.tags}}
+                    </span>
                 </div>
             </div>
         </li>
