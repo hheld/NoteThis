@@ -7,8 +7,14 @@
         .module('navigationPanel')
         .controller('NavigationPanelController', NavigationPanelController);
 
-    function NavigationPanelController () {
+    NavigationPanelController.$inject = ['$scope', 'subscriptionService'];
+
+    function NavigationPanelController ($scope, subscriptionService) {
         var vm = this;
         vm.tab = 1;
+
+        subscriptionService.onEditNote($scope, function () {
+            vm.tab = -1;
+        });
     }
 })();

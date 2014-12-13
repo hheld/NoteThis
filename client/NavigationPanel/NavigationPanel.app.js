@@ -3,5 +3,5 @@
 (function () {
     'use strict';
 
-    angular.module('navigationPanel', ['dB']);
+    angular.module('navigationPanel', ['dB', 'subscriptionService']);
 })();

@@ -7,5 +7,6 @@
                    ['ngRoute',
                     'noteEditor',
                     'dB',
-                    'navigationPanel']);
+                    'navigationPanel',
+                    'subscriptionService']);
 })();

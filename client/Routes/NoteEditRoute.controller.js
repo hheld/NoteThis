@@ -6,10 +6,12 @@
     angular.module('noteThis')
         .controller('NoteEditRouteController', NoteEditRouteController);
 
-    NoteEditRouteController.$inject = ['$routeParams'];
+    NoteEditRouteController.$inject = ['$routeParams', 'subscriptionService'];
 
-    function NoteEditRouteController($routeParams) {
+    function NoteEditRouteController($routeParams, subscriptionService) {
         var vm = this;
         vm.noteId = $routeParams.noteId;
+
+        subscriptionService.editNote();
     }
 })();
