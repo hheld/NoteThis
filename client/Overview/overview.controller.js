@@ -1,4 +1,4 @@
-/* global angular, console */
+/* global angular, console, confirm */
 
 (function () {
     'use strict';
@@ -23,13 +23,15 @@
         });
 
         function deleteNote (noteId) {
-            DataStorage
-            .then(function (ds) {
-                ds.deleteNote(noteId)
-                .then(function () {
-                    updateNoteList(ds);
+            if (confirm('Are you sure you want to delete the note?')) {
+                DataStorage
+                .then(function (ds) {
+                    ds.deleteNote(noteId)
+                    .then(function () {
+                        updateNoteList(ds);
+                    });
                 });
-            });
+            }
         }
 
         function updateNoteList (ds) {
