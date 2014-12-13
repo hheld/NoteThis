@@ -7,13 +7,14 @@
         .module('noteThis')
         .controller('OverviewController', OverviewController);
 
-    OverviewController.$inject = ['DataStorage'];
+    OverviewController.$inject = ['DataStorage', '$location'];
 
-    function OverviewController (DataStorage) {
+    function OverviewController (DataStorage, $location) {
         var vm = this;
 
         vm.notes = [];
         vm.deleteNote = deleteNote;
+        vm.editNote = editNote;
 
         // ####################################################################
 
@@ -36,6 +37,10 @@
             .then(function (notes) {
                 vm.notes = notes;
             });
+        }
+
+        function editNote (noteId) {
+            $location.path('/edit/' + noteId);
         }
     }
 })();
