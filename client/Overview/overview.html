@@ -1,6 +1,6 @@
 <section>
     <ul class="list-group">
-        <li class="list-group-item" ng-repeat="note in ctrl.notes">
+        <li class="list-group-item" ng-repeat="note in ctrl.notes | orderObjects:'value.date':true">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <strong>
