@@ -1,0 +1,23 @@
+{
+  "name": "NoteThis",
+  "version": "1.0.0",
+  "authors": [
+    "Harald Held <harald.held@gmail.com>"
+  ],
+  "description": "Minimalistic note taking app.",
+  "main": "client/index.html",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "pagedown": "~1.1.0"
+  }
+}
