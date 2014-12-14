@@ -13,6 +13,7 @@
         var EDIT_MODE = "editMode";
         var GOTO_OVERVIEW = "goToOverview";
         var NOTE_LIST_CHANGED = "noteListChanged";
+        var VIEW_MODE = "viewMode";
 
         return {
             editNote: editNote,
@@ -20,7 +21,9 @@
             goToOverview: goToOverview,
             onGoToOverview: onGoToOverview,
             noteListChanged: noteListChanged,
-            onNoteListChanged: onNoteListChanged
+            onNoteListChanged: onNoteListChanged,
+            viewNote: viewNote,
+            onViewNote: onViewNote
         };
 
         // ####################################################################
@@ -51,6 +54,16 @@
 
         function onNoteListChanged ($scope, handler) {
             $scope.$on(NOTE_LIST_CHANGED, function (event) {
+                handler();
+            });
+        }
+
+        function viewNote () {
+            $rootScope.$broadcast(VIEW_MODE);
+        }
+
+        function onViewNote ($scope, handler) {
+            $scope.$on(VIEW_MODE, function (event) {
                 handler();
             });
         }

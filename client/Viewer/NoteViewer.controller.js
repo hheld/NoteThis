@@ -7,9 +7,9 @@
         .module('noteViewer')
         .controller('NoteViewerController', NoteViewerController);
 
-    NoteViewerController.$inject = ['$scope', 'DataStorage', '$location', 'subscriptionService'];
+    NoteViewerController.$inject = ['DataStorage', '$location', 'subscriptionService'];
 
-    function NoteViewerController ($scope, DataStorage, $location, subscriptionService) {
+    function NoteViewerController (DataStorage, $location, subscriptionService) {
         var vm = this;
 
         vm.deleteNote = deleteNote;
@@ -25,6 +25,11 @@
                     ds.deleteNote(noteId)
                     .then(function () {
                         subscriptionService.noteListChanged();
+
+                        if ($location.path().indexOf('viewNote') > -1) {
+                            $location.path('/allNotes');
+                            subscriptionService.goToOverview();
+                        }
                     });
                 });
             }

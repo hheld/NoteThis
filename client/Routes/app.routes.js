@@ -19,6 +19,12 @@
             controller: 'NoteEditRouteController',
             scope: { }
         })
+        .when('/viewNote/:noteId', {
+            template: '<note-viewer note=ctrl.note></note-viewer>',
+            controllerAs: 'ctrl',
+            controller: 'NoteViewRouteController',
+            scope: { }
+        })
         .when('/allNotes', {
             templateUrl: 'Overview/overview.html',
             controllerAs: 'ctrl',

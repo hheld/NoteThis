@@ -15,7 +15,9 @@
         return makeHtml;
 
         function makeHtml (input) {
-            return converter.makeHtml(input);
+            if(input) {
+                return converter.makeHtml(input);
+            }
         }
     }
 })();
