@@ -12,12 +12,15 @@
     function SubscriptionService ($rootScope) {
         var EDIT_MODE = "editMode";
         var GOTO_OVERVIEW = "goToOverview";
+        var NOTE_LIST_CHANGED = "noteListChanged";
 
         return {
             editNote: editNote,
             onEditNote: onEditNote,
             goToOverview: goToOverview,
-            onGoToOverview: onGoToOverview
+            onGoToOverview: onGoToOverview,
+            noteListChanged: noteListChanged,
+            onNoteListChanged: onNoteListChanged
         };
 
         // ####################################################################
@@ -38,6 +41,16 @@
 
         function onGoToOverview ($scope, handler) {
             $scope.$on(GOTO_OVERVIEW, function (event) {
+                handler();
+            });
+        }
+
+        function noteListChanged () {
+            $rootScope.$broadcast(NOTE_LIST_CHANGED);
+        }
+
+        function onNoteListChanged ($scope, handler) {
+            $scope.$on(NOTE_LIST_CHANGED, function (event) {
                 handler();
             });
         }

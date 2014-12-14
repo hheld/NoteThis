@@ -9,30 +9,7 @@
     </form>
     <ul class="list-group">
         <li class="list-group-item" ng-repeat="note in ctrl.notes | filter:ctrl.filterTags | orderObjects:'value.date':true">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <strong>
-                        {{note.value.title}}
-                    </strong>
-                    <span class="label label-info navbar-right small">
-                        {{note.value.date | date:'MMM d, y (H:mm:ss)'}}
-                    </span>
-                </div>
-                <div class="panel-body" ng-show="note.isShown">
-                    <p ng-bind-html="note.value.note | markdown"></p>
-                </div>
-                <div class="panel-footer">
-                    <div class="btn-group btn-group-xs" role="group">
-                        <button type="button" class="btn btn-info" ng-show="note.isShown" ng-click="ctrl.toggleShown(note)">Hide</button>
-                        <button type="button" class="btn btn-info" ng-hide="note.isShown" ng-click="ctrl.toggleShown(note)">Show</button>
-                        <button type="button" ng-click="ctrl.editNote(note.key)" class="btn btn-primary">Edit</button>
-                        <button type="button" ng-click="ctrl.deleteNote(note.value.id)" class="btn btn-danger">Delete</button>
-                    </div>
-                    <span class="badge navbar-right">
-                        {{note.value.tags}}
-                    </span>
-                </div>
-            </div>
+            <note-viewer note="note"></note-viewer>
         </li>
     </ul>
 </section>

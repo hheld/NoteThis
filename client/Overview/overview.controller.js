@@ -7,48 +7,29 @@
         .module('noteThis')
         .controller('OverviewController', OverviewController);
 
-    OverviewController.$inject = ['DataStorage', '$location'];
+    OverviewController.$inject = ['DataStorage', 'subscriptionService', '$scope'];
 
-    function OverviewController (DataStorage, $location) {
+    function OverviewController (DataStorage, subscriptionService, $scope) {
         var vm = this;
 
         vm.notes = [];
-        vm.deleteNote = deleteNote;
-        vm.editNote = editNote;
-        vm.toggleShown = toggleShown;
         vm.filterTags = filterTags;
 
         // ####################################################################
 
         DataStorage.then(function (ds) {
             updateNoteList(ds);
-        });
 
-        function deleteNote (noteId) {
-            if (confirm('Are you sure you want to delete the note?')) {
-                DataStorage
-                .then(function (ds) {
-                    ds.deleteNote(noteId)
-                    .then(function () {
-                        updateNoteList(ds);
-                    });
-                });
-            }
-        }
+            subscriptionService.onNoteListChanged($scope, function () {
+                updateNoteList(ds);
+            });
+        });
 
         function updateNoteList (ds) {
             ds.fetchAllPromise()
             .then(function (notes) {
                 vm.notes = notes;
             });
-        }
-
-        function editNote (noteId) {
-            $location.path('/edit/' + noteId);
-        }
-
-        function toggleShown (note) {
-            note.isShown = !note.isShown;
         }
 
         function filterTags (element) {

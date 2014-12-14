@@ -7,6 +7,7 @@
                    ['ngRoute',
                     'ngSanitize',
                     'noteEditor',
+                    'noteViewer',
                     'dB',
                     'navigationPanel',
                     'subscriptionService']);
