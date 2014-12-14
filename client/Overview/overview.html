@@ -1,6 +1,14 @@
 <section>
+    <form class="form-horizontal panel-body" role="form">
+        <div class="form-group form-group-sm">
+            <label class="col-sm-2 control-label" for="inputTagFilter">Filter tags</label>
+            <div class="col-sm-10">
+                <input ng-model="ctrl.tagFilter" class="form-control" type="text" id="inputTagFilter" placeholder="Enter tags here">
+            </div>
+        </div>
+    </form>
     <ul class="list-group">
-        <li class="list-group-item" ng-repeat="note in ctrl.notes | orderObjects:'value.date':true">
+        <li class="list-group-item" ng-repeat="note in ctrl.notes | filter:ctrl.filterTags | orderObjects:'value.date':true">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <strong>

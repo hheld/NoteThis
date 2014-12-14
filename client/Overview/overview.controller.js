@@ -16,6 +16,7 @@
         vm.deleteNote = deleteNote;
         vm.editNote = editNote;
         vm.toggleShown = toggleShown;
+        vm.filterTags = filterTags;
 
         // ####################################################################
 
@@ -48,6 +49,24 @@
 
         function toggleShown (note) {
             note.isShown = !note.isShown;
+        }
+
+        function filterTags (element) {
+            var passFilter = false;
+
+            if (!vm.tagFilter) {
+                passFilter = true;
+            } else {
+                var individualTags = vm.tagFilter.split(' ');
+
+                individualTags.forEach(function (tag) {
+                    if (element.value.tags.indexOf(tag) > -1) {
+                        passFilter = true;
+                    }
+                });
+            }
+
+            return passFilter;
         }
     }
 })();
