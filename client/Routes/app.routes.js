@@ -30,6 +30,9 @@
             controllerAs: 'ctrl',
             controller: 'OverviewController',
             scope: { }
+        })
+        .otherwise({
+            redirectTo: '/allNotes'
         });
     }
 })();
