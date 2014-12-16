@@ -14,6 +14,7 @@
 
         vm.notes = [];
         vm.filterTags = filterTags;
+        vm.filterDates = filterDates;
 
         // ####################################################################
 
@@ -45,6 +46,31 @@
                         passFilter = true;
                     }
                 });
+            }
+
+            return passFilter;
+        }
+
+        function filterDates (element) {
+            var passFilter = false;
+
+            if(!vm.minDateFilter && !vm.maxDateFilter) {
+                passFilter = true;
+            } else {
+                if (vm.minDateFilter && !vm.maxDateFilter) {
+                    if (element.value.date >= vm.minDateFilter) {
+                        passFilter = true;
+                    }
+                } else if (vm.maxDateFilter && !vm.minDateFilter) {
+                    if (element.value.date <= vm.maxDateFilter) {
+                        passFilter = true;
+                    }
+                } else if (vm.minDateFilter && vm.maxDateFilter) {
+                    if (element.value.date >= vm.minDateFilter &&
+                        element.value.date <= vm.maxDateFilter) {
+                        passFilter = true;
+                    }
+                }
             }
 
             return passFilter;
