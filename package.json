@@ -1,20 +1,25 @@
 {
-  "name": "NoteThis",
-  "version": "1.0.0",
-  "description": "Minimalistic note taking application.",
-  "node-main": "server/server.js",
-  "main": "http://localhost:8000/index.html",
-  "dependencies": {
-    "angular-route": "^1.3.6",
-    "express": "^4.10.4",
-    "angular": "^1.3.6",
-    "angular-sanitize": "^1.3.6",
-    "bootstrap": "^3.3.1"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Harald Held",
-  "license": "ISC"
+    "name": "NoteThis",
+    "version": "1.0.0",
+    "description": "Minimalistic note taking application.",
+    "node-main": "server/server.js",
+    "main": "http://localhost:8000/index.html",
+    "dependencies": {
+        "angular-route": "^1.3.6",
+        "express": "^4.10.4",
+        "angular": "^1.3.6",
+        "angular-sanitize": "^1.3.6",
+        "bootstrap": "^3.3.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Harald Held",
+    "license": "ISC",
+    "window": {
+        "title": "Simple Google news reader",
+        "toolbar": false,
+        "frame": true
+    }
 }
