@@ -38,7 +38,7 @@
                 var storage = event.target.result;
 
                 storage.createObjectStore('notes', {
-                    keyPath: 'id',
+                    keyPath: 'title',
                     autoIncrement: true
                 });
             };
@@ -89,7 +89,7 @@
         function fetchNote (noteId) {
             var transaction = db.transaction(['notes'], 'readonly'),
                 objectStore = transaction.objectStore('notes'),
-                keyRange = IDBKeyRange.only(parseInt(noteId)),
+                keyRange = IDBKeyRange.only(noteId),
                 req = objectStore.openCursor(keyRange);
 
             var note,
@@ -110,7 +110,7 @@
         function deleteNote (noteId) {
             var transaction = db.transaction(['notes'], 'readwrite'),
                 objectStore = transaction.objectStore('notes'),
-                req = objectStore.delete(+noteId);
+                req = objectStore.delete(noteId);
 
             var deferred = $q.defer();
 

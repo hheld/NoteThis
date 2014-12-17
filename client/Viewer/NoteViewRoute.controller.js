@@ -18,7 +18,7 @@
             ds.fetchNotePromise(noteId)
             .then(function (note) {
                 vm.note.value = note;
-                vm.note.key = note.id;
+                vm.note.key = noteId;
 
                 subscriptionService.viewNote();
             });

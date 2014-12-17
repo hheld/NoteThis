@@ -13,7 +13,7 @@
         var vm = this;
 
         vm.note = '';
-        vm.title = '';
+        vm.title = $scope.note;
         vm.tags = '';
         vm.noteId = $scope.note;
         vm.existingNote = Boolean(vm.noteId);
@@ -41,10 +41,6 @@
                     tags: vm.tags,
                     note: vm.note
                 };
-
-                if (vm.existingNote) {
-                    newNote.id = parseInt(vm.noteId);
-                }
 
                 ds.store(newNote).then(function () {
                     $location.path('/allNotes');

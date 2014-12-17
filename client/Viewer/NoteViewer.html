@@ -15,9 +15,9 @@
             <button type="button" class="btn btn-info" ng-show="note.isShown" ng-click="ctrl.toggleShown(note)">Hide</button>
             <button type="button" class="btn btn-info" ng-hide="note.isShown" ng-click="ctrl.toggleShown(note)">Show</button>
             <button type="button" ng-click="ctrl.editNote(note.key)" class="btn btn-primary">Edit</button>
-            <button type="button" ng-click="ctrl.deleteNote(note.value.id)" class="btn btn-danger">Delete</button>
+            <button type="button" ng-click="ctrl.deleteNote(note.key)" class="btn btn-danger">Delete</button>
         </div>
-        <a ng-href="#/viewNote/{{note.value.id}}" class="glyphicon glyphicon-eye-open"></a>
+        <a ng-href="#/viewNote/{{note.key}}" class="glyphicon glyphicon-eye-open"></a>
         <span class="badge navbar-right">
             {{note.value.tags}}
         </span>
