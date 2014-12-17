@@ -101,6 +101,8 @@
                 if (result) {
                     note = result.value;
                     deferred.resolve(note);
+                } else {
+                    deferred.reject('No such note: ' + noteId);
                 }
             };
 
