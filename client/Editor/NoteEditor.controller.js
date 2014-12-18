@@ -7,9 +7,9 @@
         .module('noteEditor')
         .controller('NoteEditorController', NoteEditorController);
 
-    NoteEditorController.$inject = ['DataStorage', '$scope', '$location', 'subscriptionService'];
+    NoteEditorController.$inject = ['DataStorage', '$scope', '$location', 'subscriptionService', 'NoteLinks'];
 
-    function NoteEditorController (DataStorage, $scope, $location, subscriptionService) {
+    function NoteEditorController (DataStorage, $scope, $location, subscriptionService, NoteLinks) {
         var vm = this;
 
         vm.note = '';
@@ -35,6 +35,8 @@
         // ####################################################################
 
         function save () {
+            vm.note = NoteLinks.noteLinksFixer(vm.note);
+
             DataStorage.then(function (ds) {
                 var newNote = {
                     title: vm.title,
