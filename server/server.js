@@ -10,7 +10,7 @@ module.exports = (function () {
     app.use(express.static(__dirname + '/../node_modules'));
     app.use(express.static(__dirname + '/../node_modules/bootstrap/dist'));
     app.use(express.static(__dirname + '/../bower_components'));
-    app.use(express.static(__dirname + '/../client'));
+    app.use(express.static(__dirname + '/../clientDist'));
 
     http.listen(port, function () {
         console.log('Started web server on port ' + port);

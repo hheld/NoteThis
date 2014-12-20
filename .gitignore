@@ -1,2 +1,5 @@
 node_modules
 bower_components
+/client/js/app.js
+/client/NoteThis.min.js
+clientDist
