@@ -47,7 +47,7 @@
         }
 
         function getFixedLink (linkName) {
-            var fixedLink = linkName.replace(' ', '%20');
+            var fixedLink = encodeURIComponent(linkName);
 
             return '[' + linkName + '](/#/viewNote/' + fixedLink + ')';
         }
