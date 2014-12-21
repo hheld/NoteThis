@@ -21,7 +21,7 @@
   "author": "Harald Held",
   "license": "ISC",
   "window": {
-    "title": "Simple Google news reader",
+    "title": "Note This",
     "toolbar": false,
     "frame": true
   }
